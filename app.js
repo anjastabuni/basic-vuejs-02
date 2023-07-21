@@ -1,13 +1,9 @@
-// Vue.filters('currencyFormat', function(){
-
-// });
-
 var app = new Vue({
   el: "#app",
   data: {
     maximum: 50,
     products: null,
-    cart: [{ product: product, qty: qty }],
+    cart: [],
     style: {
       label: ["font-weight-bold", "mr-2"],
       inputWidth: 60,

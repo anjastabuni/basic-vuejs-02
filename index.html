@@ -18,14 +18,14 @@
                 <i class="fas fa-dollar-sign"></i>
             </button>
             <div class=" dropdown ms-2">
-              <button type="button" class="btn btn-success btn-sm dropdown-toggle"  data-bs-toggle="dropdown"  aria-expanded="false">
+              <button type="button" class="btn btn-success btn-sm dropdown-toggle" id="dropdownCart"  data-bs-toggle="dropdown"  aria-expanded="false">
                 <b>card: </b>
                 <span class="badge rounded-pill text-bg-success">{{ cart.length }}</span>
               </button>
-              <div class="dropdown-menu dropdown-menu-end" >
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownCart">
                 <div v-for="(item, index) in cart" :key="index">
                   <div class="dropdown-item text-nowrap text-right">
-                    <span class="badge badge-pill badge-warning align-text-top mr-1">
+                    <span class="badge rounded-pill text-bg-warning align-text-top me-1">
                       {{ item.qty }}
                     </span>
                     {{ item.product.name }}

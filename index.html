@@ -17,10 +17,12 @@
             <button class="btn btn-outline-success" @click="style.sliderStatus = !style.sliderStatus">
                 <i class="fas fa-dollar-sign"></i>
             </button>
-            <div class=" dropdown ms-2">
+            <div class=" dropdown ms-2" v-if="cart.length > 0">
               <button type="button" class="btn btn-success btn-sm dropdown-toggle" id="dropdownCart"  data-bs-toggle="dropdown"  aria-expanded="false">
-                <b>card: </b>
-                <span class="badge rounded-pill text-bg-success">{{ cart.length }}</span>
+           
+                <span class="badge rounded-pill text-bg-success">{{ cartQty }}</span>
+                <i class="fas fa-shopping-cart xe-2"></i>
+                {{ cartTotal | currencyFormat }}
               </button>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownCart">
                 <div v-for="(item, index) in cart" :key="index">
@@ -30,6 +32,8 @@
                     </span>
                     {{ item.product.name }}
                     <b>{{ item.product.price * item.qty | currencyFormat }}</b>
+                    <a href="#" class="badge text-bg-danger" 
+                    @click.stop="deleteItem(index)">-</a>
                   </div>
                 </div>
               </div>
